@@ -6,7 +6,7 @@ post "/generate_url" do
   print params
 	url = Url.new(long_url:params[:long_url])
 	if url.save
-	redirect "redirect/#{url.id}"
+	redirect "/redirect/#{url.id}"
 	else
 		render "static/index"
 	end

@@ -1,8 +1,8 @@
 <h1> Welcome to my Bitly Clone... </h1>
 
 <form action="/generate_url" method="post">
-    Enter a URL to begin: 
-    <input type="text" name="long_url">
+    Enter a URL beginning with https:// to begin: 
+    <input type="text" name="long_url" required pattern="https://.+">
     <input type="submit" value="Submit">
  </form>
 
