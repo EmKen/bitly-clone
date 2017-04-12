@@ -12,7 +12,7 @@ post "/generate_url" do
 	end
 end
 
-# i.e. /q6bda
+
 get "/redirect/:id" do
   id = params[:id]
   @url = Url.find(id)

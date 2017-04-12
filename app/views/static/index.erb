@@ -1,8 +1,25 @@
-<h1> Welcome to my Bitly Clone... </h1>
+<h1> Welcome to Bitems! </h1>
 
 <form action="/generate_url" method="post">
-    Enter a URL beginning with https:// to begin: 
+    Enter a URL beginning with https:// to generate a bitem: 
     <input type="text" name="long_url" required pattern="https://.+">
     <input type="submit" value="Submit">
  </form>
+
+<h3> Previously generated Bitems: </h3> 
+ <table>
+ <tr>
+ 	<th> Long URL </th>
+ 	<th> Short URL (Bitem) </th>
+<% Url.last(15).reverse.each do |url| %>
+  <tr>
+    <td>
+      <%= url.long_url %>
+    </td>
+    <td>
+      <a href="<%= url.long_url %>"> <%= url.short_url %> </a> 
+    </td>
+  </tr>
+<% end %>
+</table>
 
