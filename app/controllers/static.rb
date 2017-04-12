@@ -18,3 +18,9 @@ get "/redirect/:id" do
   @url = Url.find(id)
   erb :"static/url_page"
 end
+
+get "/:short_url" do
+	p short_url = params[:short_url]
+	@url = Url.find_by(short_url: short_url)
+	redirect @url.long_url
+end
