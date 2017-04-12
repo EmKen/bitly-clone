@@ -1,6 +1,7 @@
 class Url < ActiveRecord::Base
 	before_create do
 		self.short_url = shorten
+		self.click_count = 0
 	end
 
 	def shorter

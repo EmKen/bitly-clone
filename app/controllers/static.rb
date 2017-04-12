@@ -20,7 +20,8 @@ get "/redirect/:id" do
 end
 
 get "/:short_url" do
-	p short_url = params[:short_url]
+	short_url = params[:short_url]
 	@url = Url.find_by(short_url: short_url)
+	@url.increment!(:click_count)
 	redirect @url.long_url
 end
