@@ -1,29 +1,36 @@
-<h1> Welcome to Bitems! </h1>
 
-<form action="/generate_url" method="post">
-    Enter a URL beginning with https:// to generate a bitem: 
-    <input type="text" name="long_url" required pattern="https://.+">
-    <input type="submit" value="Submit">
- </form>
+<div class="header-container">
 
-<h3> Previously generated Bitems: </h3> 
- <table>
- <tr>
- 	<th> Long URL </th>
- 	<th> Short URL (Bitem) </th>
-  <th> Clicks </th>
-<% Url.last(15).reverse.each do |url| %>
-  <tr>
-    <td>
-      <%= url.long_url %>
-    </td>
-    <td>
-      <a href="/<%= url.short_url %>"> <%= url.short_url %> </a> 
-    </td>
-    <td>
-    <%= url.click_count %>
-    </td>
-  </tr>
-<% end %>
-</table>
+  <div class="header-content">
+    <h1> THE LINK KNOWS ALL. SO CAN YOU. </h1>
+    <h2>Measure your links with Bitly, the world's leading link management platform. </h2>
 
+    <form action="/generate_url" method="post">
+        <input type="text" name="long_url" required pattern="https://.+" placeholder="Enter a URL to shorten">
+        <input type="submit" value="Shorten">
+    </form>
+  </div>
+  <img src="img/keyboard.jpg">
+ </div>
+
+<div class="generated">
+   <table>
+   <tr>
+   	<th> Long URL </th>
+   	<th> Short URL </th>
+    <th> Clicks </th>
+  <% Url.last(15).reverse.each do |url| %>
+    <tr>
+      <td>
+        <%= url.long_url %>
+      </td>
+      <td>
+        <a href="/<%= url.short_url %>"> <%= url.short_url %> </a> 
+      </td>
+      <td>
+      <%= url.click_count %>
+      </td>
+    </tr>
+  <% end %>
+  </table>
+</div>

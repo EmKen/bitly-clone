@@ -4,11 +4,14 @@ end
 
 post "/generate_url" do
   print params
-	url = Url.new(long_url:params[:long_url])
-	if url.save
-	redirect "/redirect/#{url.id}"
+	@url = Url.new(long_url:params[:long_url])
+	if @url.save
+		return @url.to_json
+	# redirect "/redirect/#{url.id}"
 	else
-		render "static/index"
+		status 400
+		return @url.to_json
+		# render "static/index"
 	end
 end
 
