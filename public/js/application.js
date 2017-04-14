@@ -15,7 +15,17 @@ $(document).ready(function(){
 			},
 			error: function(data) {
 				alert("Problem")
-			}
+			},
+
+			beforeSend: function() {
+        $('form input[type=submit]').val('Loading...');
+      },
+
+      complete: function() {
+        $('form input[type=submit]').val('Shorten');
+      }
+
+
 		})
 	})
 });
