@@ -6,12 +6,11 @@ post "/generate_url" do
   print params
 	@url = Url.new(long_url:params[:long_url])
 	if @url.save
-		return @url.to_json
-	# redirect "/redirect/#{url.id}"
+		# return @url.to_json #to add row to existing table
+		erb :"static/table", layout: false #to regenerate whole table
 	else
 		status 400
-		return @url.to_json
-		# render "static/index"
+		return @url
 	end
 end
 
